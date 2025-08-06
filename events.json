@@ -4,23 +4,26 @@
     "startDate": "2025-08-10T18:00:00Z",
     "description": "Live jazz every Sunday evening in the main park.",
     "image": "https://example.com/images/artwalk.jpg",
+    "classificationName": "Art & Theatre",
     "url": "https://pwas.sarasotaflguide.com/cms-events/i/89117301/event-2",
     "venue": "14515 Leopard Creek place"
   },
   {
     "title": "Downtown Art Walk",
-    "startDate": "2025-09-05T17:30:00Z",
+    "startDate": "2025-08-01T17:30:00Z",
     "description": "Tour downtown galleries and meet local artists.",
     "image": "https://example.com/images/artwalk.jpg",
+    "classificationName": "Music",
     "url": "https://bestbuy.com",
     "venue": "14517 Leopard Creek place"
 
   },
   {
     "title": "Beach Bonfire Night",
-    "startDate": "2025-10-12T19:00:00Z",
+    "startDate": "2025-08-01T19:00:00Z",
     "description": "Enjoy music, s'mores, and sunset at Siesta Key Beach.",
     "image": "https://example.com/images/bonfire.jpg", 
+    "classificationName": "Sports",
     "url": "https://target.com",
     "venue": "14519 Leopard Creek place"
 
