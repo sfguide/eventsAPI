@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors()); // Allow CORS for all origins
 
 app.get('/events', (req, res) => {
+  const { startDate, classificationName } = req.query;
+
   fs.readFile('events.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading events.json:', err);
@@ -16,13 +18,25 @@ app.get('/events', (req, res) => {
 
     try {
       const events = JSON.parse(data);
-      const today = new Date();
-      const sixMonthsFromNow = new Date();
-      sixMonthsFromNow.setMonth(today.getMonth() + 6);
 
       const filtered = events.filter(event => {
         const eventStart = new Date(event.startDate);
-        return eventStart >= today && eventStart <= sixMonthsFromNow;
+        const now = new Date();
+        const sixMonthsFromNow = new Date();
+        sixMonthsFromNow.setMonth(now.getMonth() + 6);
+
+        let match = eventStart >= now && eventStart <= sixMonthsFromNow;
+
+        if (startDate) {
+          const queryDate = new Date(startDate);
+          match = match && eventStart >= queryDate;
+        }
+
+        if (classificationName) {
+          match = match && event.classificationName?.toLowerCase().includes(classificationName.toLowerCase());
+        }
+
+        return match;
       });
 
       res.json(filtered);
